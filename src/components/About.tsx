@@ -1,11 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
 import { site } from "../data/site";
 import { scrollToId } from "../lib/scroll";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { Photo, Viewfinder } from "./Viewfinder";
 
 const credits = [
   { k: "Television", v: "Serials" },
@@ -14,42 +11,15 @@ const credits = [
 ];
 
 export function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [60, -60]);
-
   return (
     <section id="about" className="relative py-28 md:py-40">
-      <div className="container-cine grid gap-16 lg:grid-cols-12 lg:gap-12">
-        <div ref={ref} className="relative lg:col-span-5">
-          <Reveal>
-            <Viewfinder className="aspect-[4/5] bg-ink-2" frame="Frame 0124" meta="24 FPS · ƒ1.8">
-              <Photo
-                src={site.portrait}
-                srcSet={site.portraitSrcSet}
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                alt={site.portraitAlt || `Portrait of ${site.name}`}
-                position="36% 20%"
-                label="Portrait"
-              />
-            </Viewfinder>
-          </Reveal>
-          {site.behindTheScenes && (
-          <motion.div style={{ y }} className="absolute -bottom-14 -right-2 md:-right-10 w-[46%] hidden sm:block">
-            <Reveal delay={0.25}>
-              <div className="relative aspect-[3/4] border border-line bg-ink-2 overflow-hidden shadow-2xl shadow-black">
-                <Photo src={site.behindTheScenes} alt="Behind the scenes on set" label="Behind the scenes" />
-              </div>
-              <p className="label mt-3 !text-[0.6rem] text-mute">On set — BTS</p>
-            </Reveal>
-          </motion.div>
-          )}
+      <div className="container-cine grid gap-12 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-5">
+          <SectionHeading index="02" label="Introduction" title="The man behind the frame." />
         </div>
 
-        <div className="lg:col-span-6 lg:col-start-7 lg:pt-10">
-          <SectionHeading index="02" label="Introduction" title="The man behind the frame." />
-          <div className="mt-10 space-y-6 text-lg leading-relaxed text-white/80 max-w-xl">
+        <div className="lg:col-span-6 lg:col-start-7 lg:pt-4">
+          <div className="space-y-6 text-lg leading-relaxed text-white/80 max-w-xl">
             <Reveal delay={0.1}>
               <p>
                 <span className="text-white">{site.name}</span> is a Tamil filmmaker with experience in television serials, feature films and

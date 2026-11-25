@@ -36,7 +36,6 @@ export const site = {
   },
 
   /** Genres & crafts shown in the scrolling strip. */
-  marquee: ["Direction", "Screenplay", "Love & Comedy", "Writing", "Political Comedy", "Acting", "Feel Good", "Ghost Films"],
 };
 
 export const navItems = [

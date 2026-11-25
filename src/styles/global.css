@@ -10,9 +10,10 @@
   --color-gold-soft: #e2cba0;
   --color-line: #292929;
 
-  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-label: "DM Sans", "Inter", system-ui, sans-serif;
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-serif: "Libre Caslon Text", Georgia, serif;
+  --font-sans: "Libre Franklin", system-ui, sans-serif;
+  --font-label: "IBM Plex Mono", ui-monospace, monospace;
 
   --ease-cine: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -60,14 +61,14 @@
     font-family: var(--font-label);
     font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
   .display {
-    font-family: var(--font-serif);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 0.92;
+    letter-spacing: 0.01em;
   }
   .container-cine {
     width: 100%;
@@ -193,13 +194,21 @@
   animation: dust 30s linear infinite alternate;
 }
 
-/* ---------- Marquee ---------- */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* ---------- Splash: film strip + clapperboard ---------- */
+@keyframes film-roll {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
 }
-.marquee-track {
-  animation: marquee 40s linear infinite;
+.film-roll {
+  animation: film-roll 3s linear infinite;
+}
+.film-roll-rev {
+  animation: film-roll 3s linear infinite reverse;
+}
+.clap-stripes {
+  border: 2px solid rgb(255 255 255 / 0.85);
+  border-bottom-width: 0;
+  background: repeating-linear-gradient(-55deg, #f4efe6 0 22px, #111 22px 44px);
 }
 
 /* ---------- Scroll cue ---------- */
@@ -228,8 +237,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .grain,
-  .marquee-track {
+  .grain {
     animation: none !important;
   }
 }

@@ -5,7 +5,6 @@ import { Contact } from "../components/Contact";
 import { ExperienceTimeline } from "../components/ExperienceTimeline";
 import { Filmography } from "../components/Filmography";
 import { Hero } from "../components/Hero";
-import { Marquee } from "../components/Marquee";
 import { Profile } from "../components/Profile";
 import { ShortFilms } from "../components/ShortFilms";
 import { WritingPortfolio } from "../components/WritingPortfolio";
@@ -14,7 +13,6 @@ export function Home({ ready }: { ready: boolean }) {
   return (
     <main>
       <Hero ready={ready} />
-      <Marquee />
       <About />
       <Filmography />
       <ShortFilms />
