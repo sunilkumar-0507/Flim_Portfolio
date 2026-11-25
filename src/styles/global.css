@@ -194,23 +194,6 @@
   animation: dust 30s linear infinite alternate;
 }
 
-/* ---------- Splash: film strip + clapperboard ---------- */
-@keyframes film-roll {
-  from { transform: translateY(-50%); }
-  to { transform: translateY(0); }
-}
-.film-roll {
-  animation: film-roll 3s linear infinite;
-}
-.film-roll-rev {
-  animation: film-roll 3s linear infinite reverse;
-}
-.clap-stripes {
-  border: 2px solid rgb(255 255 255 / 0.85);
-  border-bottom-width: 0;
-  background: repeating-linear-gradient(-55deg, #f4efe6 0 22px, #111 22px 44px);
-}
-
 /* ---------- Scroll cue ---------- */
 @keyframes scroll-cue {
   0% { transform: scaleY(0); transform-origin: top; }
